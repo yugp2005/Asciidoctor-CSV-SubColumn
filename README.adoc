@@ -1,0 +1,42 @@
+:imagesdir: media
+:toc:
+
+= Asciidoctor-CSV-SubColumn
+Author: Guanping Yu <yugp2005@gmail.com>
+
+Select sub column in asciidoctor CSV table to form new table
+
+== Example
+[%autowidth%header, format=csv, separator=,]
+|===
+include::Example\FieldAgents.csv[]
+|===
+
+* New csv file with choose sub column
+....
+[%autowidth%header, format=csv, separator=,]
+|===
+//include::Example\FieldAgents.csv[cols="1,5,6"]
+|===
+....
+No "//" before include.+
+
+image:SubColumn_exampleCode.png[]
+
+* Result
+
+[%autowidth%header, format=csv, separator=,]
+|===
+include::Example\SubFieldAgents.csv[]
+|===
+
+== Disscussions
+There are some topic on this issue, such as:
+
+* Asciidoctor github issue #2101
+include::https://github.com/asciidoctor/asciidoctor/issues/2101[including sub columns of a csv file in a table]
+
+* related topic
+include::https://github.com/asciidoctor/asciidoctor-extensions-lab[Extension lab]
+include::https://github.com/asciidoctor/asciidoctor-extensions-lab/blob/master/lib/textql-block.rb[textql-block]
+include::https://github.com/dinedal/textql[textql]
