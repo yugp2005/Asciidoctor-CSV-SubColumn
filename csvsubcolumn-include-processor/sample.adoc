@@ -1,0 +1,13 @@
+= csvSubColumn Include Processor
+
+.Example of FieldAgents.csv--Original
+[%autowidth%header, format=csv, separator=,]
+|===
+include::..\Example\FieldAgents.csv[]
+|===
+
+.Example of FieldAgents.csv with SubColumn
+[%autowidth%header, format=csv, separator=,]
+|===
+include::..\Example\FieldAgents.csv[cols="1,5,6"]
+|===
