@@ -37,6 +37,6 @@ There are some topic on this issue, such as:
 include::https://github.com/asciidoctor/asciidoctor/issues/2101[including sub columns of a csv file in a table]
 
 * related topic
-include::https://github.com/asciidoctor/asciidoctor-extensions-lab[Extension lab]
-include::https://github.com/asciidoctor/asciidoctor-extensions-lab/blob/master/lib/textql-block.rb[textql-block]
-include::https://github.com/dinedal/textql[textql]
+link:https://github.com/asciidoctor/asciidoctor-extensions-lab[Extension lab]
+link:https://github.com/asciidoctor/asciidoctor-extensions-lab/blob/master/lib/textql-block.rb[textql-block]
+link:https://github.com/dinedal/textql[textql]
