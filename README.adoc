@@ -40,3 +40,29 @@ include::https://github.com/asciidoctor/asciidoctor/issues/2101[including sub co
 link:https://github.com/asciidoctor/asciidoctor-extensions-lab[Extension lab]
 link:https://github.com/asciidoctor/asciidoctor-extensions-lab/blob/master/lib/textql-block.rb[textql-block]
 link:https://github.com/dinedal/textql[textql]
+
+== Using extension
+link:https://github.com/asciidoctor/asciidoctor-extensions-lab[Reference asciidoctor-extensions-lab]
+
+First, make sure Asciidoctor is installed:
+
+ $ gem install asciidoctor
+
+Next, run the extension from the root directory of the project:
+
+  $ asciidoctor -r ./lib/csvsubcolumn-include-processor.rb lib/csvsubcolumn-include-processor/sample.adoc
+
+The output file, [path]_sample.html_, was created in the same directory as the source file, [path]_sample.adoc_.
+
+The relevant bits of the input and output are shown below.
+
+._lib/csvsubcolumn-include-processor/sample.adoc_
+```asciidoc
+TODO
+```
+
+._lib/csvsubcolumn-include-processor/sample.html_
+```html
+TODO
+```
+

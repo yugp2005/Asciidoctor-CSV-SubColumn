@@ -3,11 +3,11 @@
 .Example of FieldAgents.csv--Original
 [%autowidth%header, format=csv, separator=,]
 |===
-include::..\Example\FieldAgents.csv[]
+include::.\FieldAgents.csv[]
 |===
 
 .Example of FieldAgents.csv with SubColumn
 [%autowidth%header, format=csv, separator=,]
 |===
-include::..\Example\FieldAgents.csv[cols="1,5,6"]
+include::.\FieldAgents.csv[cols="1,5,6"]
 |===
