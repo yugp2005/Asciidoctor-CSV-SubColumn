@@ -1,0 +1,45 @@
+:includedir: _includes
+
+= Algorithm to process csv files
+
+== Format:
+....
+[%autowidth%header, format=csv, separator=,]
+|===
+\include::{includedir}\FieldAgents.csv[cols="1,5,6"]
+|===
+....
+
+== Reference from adoc manual
+
+link:https://asciidoctor.org/docs/user-manual/#include-directive[adoc manual include-directive]
+
+The include directive must be placed on a line by itself with the following syntax
+....
+\include::path[<attrlist>]
+....
+
+The include directive has the following anatomy:
+....
+\include::path[leveloffset=offset,lines=ranges,tag(s)=name(s),indent=depth,opts=optional]
+....
+
+The leveloffset, lines, tag(s), indent, and opt attributes are optional, making the simplest case look like:
+....
+\include::content.adoc[]
+....
+
+Including non-AsciiDoc files is normally done to merge output from other programs or populate table data:
+....
+.2016 Sales Results
+,===
+\include::sales/2016/results.csv[]
+,===
+....
+In this case, the include directive does not do any processing of AsciiDoc directives. The content is inserted as is (after being normalized).
+
+
+== Handle csv with ruby
+link:https://www.rubyguides.com/2018/10/parse-csv-ruby/[How to Read & Parse CSV Files With Ruby] +
+link:https://www.rubydoc.info/gems/fastercsv/1.5.5/file/README[Fastercsv] +
+link:https://stackoverflow.com/questions/4821843/changing-field-separator-delimiter-in-exported-csv-using-ruby-csv[csv separator]

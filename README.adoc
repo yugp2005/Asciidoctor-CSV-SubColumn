@@ -1,33 +1,73 @@
 :imagesdir: media
+:includedir: _includes
 :toc:
 
 = Asciidoctor-CSV-SubColumn
 Author: Guanping Yu <yugp2005@gmail.com>
 
-Select sub column in asciidoctor CSV table to form new table
+Select sub column in asciidoctor CSV table to form new table. +
+Similar function
+link:https://asciidoctor.org/docs/user-manual/#by-line-ranges[28.6.3 asciidoctor by-line-ranges]
+
+To include content by column range, begin with start column end with end column and separate them with two dot (e.g., columns=1..5) to the columns attribute.
+
+```asciidoc
+\include::filename.csv[columns=1..3]
+```
+You could have multiple ranges separate with comma. Quote the list of ranges as commas are normally to separate individual attributes.
+
+```asciidoc
+\include::filename.csv[columns="1..3,10..14"]
+```
+
+You can use semi-colons to separate ranges to instead the quote and commas combination.
+
+```asciidoc
+\include::filename.csv[columns=1;5..8;10..15]
+```
+
+You can refer to the last column of the document using the value -1.
+
+```asciidoc
+\include::filename.csv[columns=3..-1]
+```
 
 == Example
+* Original csv file
+
+```asciidoc
 [%autowidth%header, format=csv, separator=,]
 |===
-include::Example\FieldAgents.csv[]
+\include::{includedir}\FieldAgents.csv[]
+|===
+```
+
+[%autowidth%header, format=csv, separator=,]
+|===
+include::{includedir}\FieldAgents.csv[]
 |===
 
 * New csv file with choose sub column
-....
+```asciidoc
 [%autowidth%header, format=csv, separator=,]
 |===
-//include::Example\FieldAgents.csv[cols="1,5,6"]
+\include::{includedir}\FieldAgents.csv[columns="1,5,6"]
 |===
-....
-No "//" before include.+
+```
 
-image:SubColumn_exampleCode.png[]
+OR
 
-* Result
+```asciidoc
+[%autowidth%header, format=csv, separator=,]
+|===
+\include::{includedir}\FieldAgents.csv[columns=1;5;6]
+|===
+```
+
 
 [%autowidth%header, format=csv, separator=,]
 |===
-include::Example\SubFieldAgents.csv[]
+include::{includedir}\SubFieldAgents.csv[]
 |===
 
 == Disscussions
@@ -58,11 +98,24 @@ The relevant bits of the input and output are shown below.
 
 ._lib/csvsubcolumn-include-processor/sample.adoc_
 ```asciidoc
-TODO
+:includedir: ..\..\_includes
+
+= csvSubColumn Include Processor
+
+.Example of FieldAgents.csv--Original
+[%autowidth%header, format=csv, separator=,]
+|===
+\include::{includedir}\FieldAgents.csv[]
+|===
+
+.Example of FieldAgents.csv with SubColumn
+[%autowidth%header, format=csv, separator=,]
+|===
+\include::{includedir}\FieldAgents.csv[cols=1;5;6]
+|===
 ```
 
 ._lib/csvsubcolumn-include-processor/sample.html_
 ```html
 TODO
 ```
-

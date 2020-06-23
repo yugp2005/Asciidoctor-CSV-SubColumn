@@ -1,13 +1,15 @@
+:includedir: ..\..\_includes
+
 = csvSubColumn Include Processor
 
 .Example of FieldAgents.csv--Original
 [%autowidth%header, format=csv, separator=,]
 |===
-include::.\FieldAgents.csv[]
+include::{includedir}\FieldAgents.csv[]
 |===
 
 .Example of FieldAgents.csv with SubColumn
 [%autowidth%header, format=csv, separator=,]
 |===
-include::.\FieldAgents.csv[cols="1,5,6"]
+include::{includedir}\FieldAgents.csv[columns=1;5;6]
 |===
