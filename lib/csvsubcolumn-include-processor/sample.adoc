@@ -34,12 +34,12 @@ include::E:\Github\Asciidoctor-CSV-SubColumn\_includes\FieldAgents.csv[columns="
 .Example of FieldAgents.csv with SubColumn (col_sep => ";")
 [%autowidth%header, format=csv, separator=;]
 |===
-\include::E:\Github\Asciidoctor-CSV-SubColumn\_includes\FieldAgents_Semicolon.csv[columns="0;2;4", column_separator=";"]
+\include::E:\Github\Asciidoctor-CSV-SubColumn\_includes\FieldAgents_Semicolon.csv[columns=0;2;4, column_separator=";"]
 |===
 ```
 
 .Example of FieldAgents.csv with SubColumn (col_sep => ";")
 [%autowidth%header, format=csv, separator=;]
 |===
-include::E:\Github\Asciidoctor-CSV-SubColumn\_includes\FieldAgents_Semicolon.csv[columns="0;2;4", column_separator=";"]
+include::E:\Github\Asciidoctor-CSV-SubColumn\_includes\FieldAgents_Semicolon.csv[columns=0;2;4, column_separator=";"]
 |===
