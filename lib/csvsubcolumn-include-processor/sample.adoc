@@ -20,14 +20,14 @@ include::E:\Github\Asciidoctor-CSV-SubColumn\_includes\FieldAgents.csv[]
 .Example of FieldAgents.csv with SubColumn (col_sep => ",")
 [%autowidth%header, format=csv, separator=,]
 |===
-\include::E:\Github\Asciidoctor-CSV-SubColumn\_includes\FieldAgents.csv[columns="1;3;5", column_separator=","]
+\include::E:\Github\Asciidoctor-CSV-SubColumn\_includes\FieldAgents.csv[columns="1,3,5", column_separator=","]
 |===
 ```
 
 .Example of FieldAgents.csv with SubColumn (col_sep => ",")
 [%autowidth%header, format=csv, separator=,]
 |===
-include::E:\Github\Asciidoctor-CSV-SubColumn\_includes\FieldAgents.csv[columns="1;3;5", column_separator=","]
+include::E:\Github\Asciidoctor-CSV-SubColumn\_includes\FieldAgents.csv[columns="1,3,5", column_separator=","]
 |===
 
 ```asciidoc
