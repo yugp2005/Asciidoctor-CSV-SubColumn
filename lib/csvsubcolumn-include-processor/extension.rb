@@ -1,6 +1,5 @@
 require 'asciidoctor/extensions' unless RUBY_ENGINE == 'opal'
 require 'csv'
-require 'tempfile'
 
 include Asciidoctor
 
@@ -14,19 +13,20 @@ class CsvSubcolumnIncludeProcessor < Extensions::IncludeProcessor
 
   # process method
   def process doc, reader, target, attributes
-    csv_separator = ","
+    #TODO use table attributes [%autowidth%header, format=csv, separator=;]
+    csvfile_separator = attributes['column_separator']
 
     if attributes.has_key? 'columns' #handle csv with column attributes
 
       columnNumbers = parse_attributes_columns attributes, ';'
 
       csv_string = ""
-      CSV.foreach(target) do |row|
+      CSV.foreach(target, "r", col_sep: csvfile_separator) do |row|
         columnNumbers.each do |columnNumber|
           csv_string << row[columnNumber]
-          csv_string << csv_separator
+          csv_string << csvfile_separator
         end
-        csv_string.delete_suffix!(csv_separator)
+        csv_string.delete_suffix!(csvfile_separator)
         csv_string << "\n"
       end
 
@@ -41,7 +41,6 @@ class CsvSubcolumnIncludeProcessor < Extensions::IncludeProcessor
 
   #parse attributes. transform columns number to array.
   def parse_attributes_columns attributes, splitter
-
     #value for columns key in attributes hash list
     colNums_Str = attributes['columns']
 
