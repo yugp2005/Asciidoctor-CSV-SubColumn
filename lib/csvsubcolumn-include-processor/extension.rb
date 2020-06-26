@@ -23,8 +23,14 @@ class CsvSubcolumnIncludeProcessor < Extensions::IncludeProcessor
       csv_string = ""
       CSV.foreach(target, "r", col_sep: csvfile_separator) do |row|
         columnNumbers.each do |columnNumber|
-          csv_string << row[columnNumber]
-          csv_string << csvfile_separator
+
+          if !(row[columnNumber].nil?)
+            csv_string << row[columnNumber]
+            csv_string << csvfile_separator
+          else
+            csv_string << csvfile_separator
+          end
+
         end
         csv_string.delete_suffix!(csvfile_separator)
         csv_string << "\n"
