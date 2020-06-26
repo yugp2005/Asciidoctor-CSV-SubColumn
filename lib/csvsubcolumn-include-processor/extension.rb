@@ -14,24 +14,26 @@ class CsvSubcolumnIncludeProcessor < Extensions::IncludeProcessor
 
   # process method
   def process doc, reader, target, attributes
-    if attributes.has_key? 'columns'
+    csv_separator = ","
+
+    if attributes.has_key? 'columns' #handle csv with column attributes
 
       columnNumbers = parse_attributes_columns attributes, ';'
 
-      out_file = File.new("subColumnCSV.csv", "w")
-
-      columnNumbers.each do |columnNumber|
-          CSV.foreach(target) do |row|
-            out_file.puts(row[columnNumber])
+      csv_string = ""
+      CSV.foreach(target) do |row|
+        columnNumbers.each do |columnNumber|
+          csv_string << row[columnNumber]
+          csv_string << csv_separator
         end
+        csv_string.delete_suffix!(csv_separator)
+        csv_string << "\n"
       end
 
-      #reader.push_include out_file, target,target, 1, attributes
+      reader.push_include csv_string, target, target, 1, attributes
+      csv_string.clear
 
-      out_file.close
-
-      #reader.push_include row[columnNumber], target,target, 1, attributes
-    else
+    else #handle csv without column attributes
       content = (open target).readlines
       reader.push_include content, target, target, 1, attributes
     end
@@ -49,13 +51,4 @@ class CsvSubcolumnIncludeProcessor < Extensions::IncludeProcessor
     return colNums_Array
   end
 
-
 end
-=begin
-#include example
-  def process doc, reader, target, attributes
-    content = (open target).readlines
-    reader.push_include content, target, target, 1, attributes
-    reader
-    end
-=end
