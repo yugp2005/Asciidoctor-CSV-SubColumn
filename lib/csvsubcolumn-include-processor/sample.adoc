@@ -5,12 +5,11 @@
 .Example of FieldAgents.csv--Original
 [%autowidth%header, format=csv, separator=,]
 |===
-include::E:\Github\Asciidoctor-CSV-SubColumn\_includes\FieldAgents.csv[]
+include::{includedir}\FieldAgents.csv[]
 |===
 
 .Example of FieldAgents.csv with SubColumn
 [%autowidth%header, format=csv, separator=,]
 |===
-include::E:\Github\Asciidoctor-CSV-SubColumn\_includes\FieldAgents.csv[columns="1;3;5"]
+include::{includedir}\FieldAgents.csv[columns=1;5;6]
 |===
-

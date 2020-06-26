@@ -1,4 +1,4 @@
-Field agent,ID,score-A,score-B,score-final,note
+Field agent,ID,score-A,score-B,score-final, note
 James Bond,00-7,100,82,91,A
 Bill,00-8,85,96,90.5,A
 Edward Donne,00-1,89,54,71.5,B
