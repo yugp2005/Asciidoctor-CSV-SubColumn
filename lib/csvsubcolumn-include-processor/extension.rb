@@ -18,7 +18,7 @@ class CsvSubcolumnIncludeProcessor < Extensions::IncludeProcessor
 
     if attributes.has_key? 'columns' #handle csv with column attributes
 
-      columnNumbers = parse_attributes_columns attributes, ';'
+      columnNumbers = parse_attributes_columns attributes
 
       csv_string = ""
       CSV.foreach(target, "r", col_sep: csvfile_separator) do |row|
@@ -46,9 +46,16 @@ class CsvSubcolumnIncludeProcessor < Extensions::IncludeProcessor
   end
 
   #parse attributes. transform columns number to array.
-  def parse_attributes_columns attributes, splitter
+  def parse_attributes_columns attributes
     #value for columns key in attributes hash list
     colNums_Str = attributes['columns']
+
+    splitter = ""
+    if colNums_Str.include? ","
+      splitter = ","
+    elsif colNums_Str.include? ";"
+      splitter = ";"
+    end
 
     #convert value string to int array
     colNums_Array = colNums_Str.split(splitter).map(&:to_i)
