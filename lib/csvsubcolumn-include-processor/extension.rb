@@ -45,11 +45,12 @@ class CsvSubcolumnIncludeProcessor < Extensions::IncludeProcessor
     end
   end
 
-  #parse attributes. transform columns number to array.
+  #method parse attributes. transform columns number to array.
   def parse_attributes_columns attributes
     #value for columns key in attributes hash list
     colNums_Str = attributes['columns']
 
+    #column splitter: ',', ';'
     splitter = ""
     if colNums_Str.include? ","
       splitter = ","
@@ -57,10 +58,39 @@ class CsvSubcolumnIncludeProcessor < Extensions::IncludeProcessor
       splitter = ";"
     end
 
-    #convert value string to int array
-    colNums_Array = colNums_Str.split(splitter).map(&:to_i)
+    split_str = colNums_Str.split(splitter)
 
-    return colNums_Array
+    return stringArray_to_IntegerArray split_str
+  end
+
+  #method convert string to integer array
+  def stringArray_to_IntegerArray stringArray
+
+    integerArray = Array.new
+
+    stringArray.each do |str_int|
+      countDot = str_int.count('.')
+      case countDot
+      when 1
+        puts "#{str_int} should be integer, single dot is not valid range"
+      when 2
+        elements = str_int.split('..')
+        range_newTwo = Range.new(elements[0].to_i, elements[1].to_i)
+        range_newTwo.to_a.each do |single|
+          integerArray << single.to_i
+        end
+      when 3
+        elements = str_int.split('...')
+        range_newThree = Range.new(elements[0].to_i, elements[1].to_i - 1)
+        range_newThree.to_a.each do |singleThree|
+          integerArray << singleThree.to_i
+        end
+      else
+        integerArray << str_int.to_i
+      end
+    end
+
+    return integerArray
   end
 
 end

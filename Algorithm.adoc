@@ -46,6 +46,9 @@ link:https://stackoverflow.com/questions/4821843/changing-field-separator-delimi
 link:https://ruby-doc.org/stdlib-2.6.1/libdoc/csv/rdoc/CSV.html[ruby doc csv]
 link:https://stackoverflow.com/questions/7911669/how-to-create-a-file-in-ruby[create file]
 
+== others
+link:http://athikunte.blogspot.com/2008/02/convert-string-to-range.html[convert string to range] +
+
 == requirement
 
 To include content by column range, begin with start column end with end column and separate them with two dot (e.g., columns=1..5) to the columns attribute.
