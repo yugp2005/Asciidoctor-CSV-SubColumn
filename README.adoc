@@ -36,10 +36,7 @@ You can use semi-colons to separate ranges to instead the quote and commas combi
 |===
 ```
 
-[%autowidth%header, format=csv, separator=,]
-|===
-include::{includedir}\FieldAgents.csv[]
-|===
+image::README_originalCSV.png[]
 
 * New csv file with choose sub column
 ```asciidoc
@@ -57,12 +54,7 @@ OR
 \include::{includedir}\FieldAgents.csv[columns=1;4;5, column_separator=","]
 |===
 ```
-
-
-[%autowidth%header, format=csv, separator=,]
-|===
-include::{includedir}\SubFieldAgents.csv[]
-|===
+image::README_subCSV.png[]
 
 == Using extension
 link:https://github.com/asciidoctor/asciidoctor-extensions-lab[Reference asciidoctor-extensions-lab]
