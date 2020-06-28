@@ -7,7 +7,6 @@ class CsvSubcolumnIncludeProcessor < Extensions::IncludeProcessor
 
   #handle target
   def handles? target
-    #TODO relative file path handle. current only use absolute path.
     target.end_with? '.csv'
   end
 
@@ -64,7 +63,6 @@ class CsvSubcolumnIncludeProcessor < Extensions::IncludeProcessor
       split_str = colNums_Str.split(splitter)
       return stringArray_to_IntegerArray split_str
     end
-
   end
 
   #method convert string to integer array

@@ -64,6 +64,34 @@ OR
 include::{includedir}\SubFieldAgents.csv[]
 |===
 
+== Using extension
+link:https://github.com/asciidoctor/asciidoctor-extensions-lab[Reference asciidoctor-extensions-lab]
+
+First, make sure Asciidoctor is installed:
+
+ $ gem install asciidoctor
+
+Next, run the extension from the root directory of the project:
+
+  $ asciidoctor -r ./lib/csvsubcolumn-include-processor.rb ./sample.adoc
+
+The output file, [path]_sample.html_, was created in the same directory as the source file, [path]_sample.adoc_.
+
+The relevant bits of the input and output are shown below.
+
+._./sample.adoc_
+link:sample.adoc[sample.adoc]
+
+._./sample.html_
+link:sample.html[sample.html]
+
+== TODO
+You can refer to the last column of the document using the value -1.
+
+```asciidoc
+\include::filename.csv[columns=3..-1]
+```
+
 == Disscussions
 There are some topic on this issue, such as:
 
@@ -74,49 +102,3 @@ include::https://github.com/asciidoctor/asciidoctor/issues/2101[including sub co
 link:https://github.com/asciidoctor/asciidoctor-extensions-lab[Extension lab]
 link:https://github.com/asciidoctor/asciidoctor-extensions-lab/blob/master/lib/textql-block.rb[textql-block]
 link:https://github.com/dinedal/textql[textql]
-
-== Using extension
-link:https://github.com/asciidoctor/asciidoctor-extensions-lab[Reference asciidoctor-extensions-lab]
-
-First, make sure Asciidoctor is installed:
-
- $ gem install asciidoctor
-
-Next, run the extension from the root directory of the project:
-
-  $ asciidoctor -r ./lib/csvsubcolumn-include-processor.rb lib/csvsubcolumn-include-processor/sample.adoc
-
-The output file, [path]_sample.html_, was created in the same directory as the source file, [path]_sample.adoc_.
-
-The relevant bits of the input and output are shown below.
-
-._lib/csvsubcolumn-include-processor/sample.adoc_
-```asciidoc
-:includedir: ..\..\_includes
-
-= csvSubColumn Include Processor
-
-.Example of FieldAgents.csv--Original
-[%autowidth%header, format=csv, separator=,]
-|===
-\include::{includedir}\FieldAgents.csv[]
-|===
-
-.Example of FieldAgents.csv with SubColumn
-[%autowidth%header, format=csv, separator=,]
-|===
-\include::{includedir}\FieldAgents.csv[cols=1;5;6]
-|===
-```
-
-._lib/csvsubcolumn-include-processor/sample.html_
-```html
-TODO
-```
-
-== TODO
-You can refer to the last column of the document using the value -1.
-
-```asciidoc
-\include::filename.csv[columns=3..-1]
-```

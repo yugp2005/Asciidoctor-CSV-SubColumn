@@ -1,4 +1,4 @@
 # ignore following items
 
-lib/csvsubcolumn-include-processor/sample.html
 .idea/
+sample.html
