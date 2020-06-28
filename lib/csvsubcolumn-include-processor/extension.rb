@@ -58,9 +58,13 @@ class CsvSubcolumnIncludeProcessor < Extensions::IncludeProcessor
       splitter = ";"
     end
 
-    split_str = colNums_Str.split(splitter)
+    if (splitter.nil_or_empty?) && (colNums_Str.include? '.')
+      return stringRange_to_integerArray colNums_Str
+    else
+      split_str = colNums_Str.split(splitter)
+      return stringArray_to_IntegerArray split_str
+    end
 
-    return stringArray_to_IntegerArray split_str
   end
 
   #method convert string to integer array
@@ -70,26 +74,51 @@ class CsvSubcolumnIncludeProcessor < Extensions::IncludeProcessor
 
     stringArray.each do |str_int|
       countDot = str_int.count('.')
-      case countDot
-      when 1
+      if  countDot == 1
         puts "#{str_int} should be integer, single dot is not valid range"
-      when 2
+      elsif countDot == 2
         elements = str_int.split('..')
         range_newTwo = Range.new(elements[0].to_i, elements[1].to_i)
         range_newTwo.to_a.each do |single|
           integerArray << single.to_i
         end
-      when 3
+      elsif countDot == 3
         elements = str_int.split('...')
         range_newThree = Range.new(elements[0].to_i, elements[1].to_i - 1)
         range_newThree.to_a.each do |singleThree|
           integerArray << singleThree.to_i
         end
+      elsif countDot > 3
+        puts "#{str_int} should be valid range. Too many dots between number."
       else
         integerArray << str_int.to_i
       end
     end
+    return integerArray
+  end
 
+  #method string range to integer array
+  def stringRange_to_integerArray stringRange
+    integerArray = Array.new
+    countDot = stringRange.count('.')
+    case countDot
+    when 1
+      puts "#{stringRange} should be integer, single dot is not valid range"
+    when 2
+      elements = stringRange.split('..')
+      range_newTwo = Range.new(elements[0].to_i, elements[1].to_i)
+      range_newTwo.to_a.each do |single|
+        integerArray << single.to_i
+      end
+    when 3
+      elements = stringRange.split('...')
+      range_newThree = Range.new(elements[0].to_i, elements[1].to_i - 1)
+      range_newThree.to_a.each do |singleThree|
+        integerArray << singleThree.to_i
+      end
+    else
+      puts "#{stringRange} should be valid range. Too many dots between number."
+    end
     return integerArray
   end
 
