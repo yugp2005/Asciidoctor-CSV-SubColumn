@@ -41,7 +41,7 @@ include::{includedir}/FieldAgents.csv[columns="1,2,4,5", column_separator=","]
 .Example of FieldAgents.csv with SubColumn (col_sep => ";")
 [%autowidth%header, format=csv, separator=;]
 |===
-include::{includedir}/FieldAgents_Semicolon.csv[columns=1;2..4;5, column_separator=";"]
+include::{includedir}/FieldAgents_Semicolon.csv[columns=1;2;4;5, column_separator=";"]
 |===
 
 ```asciidoc

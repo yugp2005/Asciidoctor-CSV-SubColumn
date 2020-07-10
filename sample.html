@@ -446,7 +446,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <pre class="highlight"><code class="language-asciidoc" data-lang="asciidoc">.Example of FieldAgents.csv--Original
 [%autowidth%header, format=csv, separator=,]
 |===
-include::{includedir}\FieldAgents.csv[]
+include::{includedir}/FieldAgents.csv[]
 |===</code></pre>
 </div>
 </div>
@@ -526,7 +526,7 @@ include::{includedir}\FieldAgents.csv[]
 <pre class="highlight"><code class="language-asciidoc" data-lang="asciidoc">.Example of FieldAgents.csv with SubColumn (col_sep =&gt; ",")
 [%autowidth%header, format=csv, separator=,]
 |===
-include::{includedir}\FieldAgents.csv[columns="1,2,4,5", column_separator=","]
+include::{includedir}/FieldAgents.csv[columns="1,2,4,5", column_separator=","]
 |===</code></pre>
 </div>
 </div>
@@ -590,7 +590,7 @@ include::{includedir}\FieldAgents.csv[columns="1,2,4,5", column_separator=","]
 <pre class="highlight"><code class="language-asciidoc" data-lang="asciidoc">.Example of FieldAgents.csv with SubColumn (col_sep =&gt; ";")
 [%autowidth%header, format=csv, separator=;]
 |===
-include::{includedir}\FieldAgents_Semicolon.csv[columns=1;2;4;5, column_separator=";"]
+include::{includedir}/FieldAgents_Semicolon.csv[columns=1;2;4;5, column_separator=";"]
 |===</code></pre>
 </div>
 </div>
@@ -601,13 +601,11 @@ include::{includedir}\FieldAgents_Semicolon.csv[columns=1;2;4;5, column_separato
 <col>
 <col>
 <col>
-<col>
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">col_1</th>
 <th class="tableblock halign-left valign-top">col_2</th>
-<th class="tableblock halign-left valign-top">col_3</th>
 <th class="tableblock halign-left valign-top">col_4</th>
 <th class="tableblock halign-left valign-top">col_5</th>
 </tr>
@@ -616,21 +614,18 @@ include::{includedir}\FieldAgents_Semicolon.csv[columns=1;2;4;5, column_separato
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">ID</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">score-A</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">score-B</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">score-final</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">note</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">00-7</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">100</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">82</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">91</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">00-8</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">85</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">96</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">90.5</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A</p></td>
 </tr>
@@ -639,19 +634,16 @@ include::{includedir}\FieldAgents_Semicolon.csv[columns=1;2;4;5, column_separato
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"></td>
-<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">00-1</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">89</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">54</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">71.5</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">B</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">00-5</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">56</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">75</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">65.5</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">C</p></td>
 </tr>
@@ -662,7 +654,7 @@ include::{includedir}\FieldAgents_Semicolon.csv[columns=1;2;4;5, column_separato
 <pre class="highlight"><code class="language-asciidoc" data-lang="asciidoc">.Example of FieldAgents.csv with SubColumn (column range: ".." OR "...")
 [%autowidth%header, format=csv, separator=;]
 |===
-include::{includedir}\FieldAgents_Semicolon.csv[columns=2..3, column_separator=";"]
+include::{includedir}/FieldAgents_Semicolon.csv[columns=2..3, column_separator=";"]
 |===</code></pre>
 </div>
 </div>
@@ -710,7 +702,7 @@ include::{includedir}\FieldAgents_Semicolon.csv[columns=2..3, column_separator="
 <pre class="highlight"><code class="language-asciidoc" data-lang="asciidoc">.Example of FieldAgents.csv with SubColumn (single column)
 [%autowidth%header, format=csv, separator=;]
 |===
-include::{includedir}\FieldAgents_Semicolon.csv[columns=1, column_separator=";"]
+include::{includedir}/FieldAgents_Semicolon.csv[columns=1, column_separator=";"]
 |===</code></pre>
 </div>
 </div>
@@ -745,7 +737,7 @@ include::{includedir}\FieldAgents_Semicolon.csv[columns=1, column_separator=";"]
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2020-06-28 06:39:49 -0400
+Last updated 2020-07-10 08:49:20 -0400
 </div>
 </div>
 </body>
