@@ -83,6 +83,8 @@ link:sample.adoc[sample.adoc]
 link:sample.html[sample.html]
 
 == TODO (Unfinished task)
+. Is zero-based csv file columns or not (the first column in csv file is 0 or 1?). None zero-based could be better. Need further discuss.
+
 . Column range: Refer to the last column of the document using the value -1.
 
 ```asciidoc
