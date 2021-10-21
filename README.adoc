@@ -31,6 +31,19 @@ column_separator in attribute need defined according filename.csv. if column sep
 \include::filename.csv[columns=1;5..8;10..15, column_separator=";"]
 ```
 
+Lines can also be extracted, along with columns.
+
+```asciidoc
+\include::filename.csv[lines=1:5, columns=1;5..8;10..15, column_separator=","]
+```
+
+
+Or just lines, in the asciidoctor standard csv processor.
+
+```asciidoc
+\include::filename.csv[lines=1:5]
+```
+
 == Example
 * Original csv file
 
