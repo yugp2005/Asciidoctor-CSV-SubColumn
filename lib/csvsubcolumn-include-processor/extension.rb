@@ -38,7 +38,18 @@ class CsvSubcolumnIncludeProcessor < Asciidoctor::Extensions::IncludeProcessor
 				end
 
 				row_subset = row.select.with_index { |e, i| column_numbers.include? i+1 }
-				csv_string << row_subset.join(',')
+
+				quoted_row = row_subset.map do |item|
+          if item.nil?
+            item
+          elsif item.include?(",")
+            '"' + item + '"'
+          else
+            item
+          end
+        end
+
+				csv_string << quoted_row.join(',')
 				csv_string << "\n"
 			end
 
@@ -50,7 +61,18 @@ class CsvSubcolumnIncludeProcessor < Asciidoctor::Extensions::IncludeProcessor
 			csv_string = ""
 			CSV.foreach(target, "r", col_sep: csvfile_separator).with_index(1) do |row, lineno|
 				if line_numbers.include?(lineno)
-					csv_string << row.join(',')
+
+				  quoted_row = row.map do |item|
+            if item.nil?
+              item
+            elsif item.include?(",")
+              '"' + item + '"'
+            else
+              item
+            end
+          end
+
+					csv_string << quoted_row.join(',')
 					csv_string << "\n"
 				end
 			end
